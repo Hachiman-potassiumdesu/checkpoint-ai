@@ -28,16 +28,6 @@ export default function Home() {
           </Button>
         </div>
       </section>
-      <section className="container">
-        <Image 
-          src="https://placehold.co/1200x600.png"
-          width={1200}
-          height={600}
-          alt="AuthFlow dashboard preview"
-          className="rounded-lg border shadow-md"
-          data-ai-hint="dashboard preview"
-        />
-      </section>
     </div>
   );
 }
