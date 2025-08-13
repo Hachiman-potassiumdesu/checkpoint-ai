@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
 
   const isAuthPage = request.nextUrl.pathname.startsWith('/signin') || request.nextUrl.pathname.startsWith('/signup');
 
-  if (request.nextUrl.pathname.startsWith('/profile') && !authed) {
+  if ((request.nextUrl.pathname.startsWith('/profile') || request.nextUrl.pathname.startsWith('/test')) && !authed) {
     return NextResponse.redirect(new URL('/signin', request.url));
   }
 
@@ -18,5 +18,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/profile/:path*', '/signin', '/signup'],
+  matcher: ['/profile/:path*', '/signin', '/signup', '/test'],
 }
