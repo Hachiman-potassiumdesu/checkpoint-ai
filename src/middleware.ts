@@ -4,10 +4,10 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const authed = request.cookies.get('authed')?.value;
 
-  const isAuthPage = request.nextUrl.pathname.startsWith('/signin') || request.nextUrl.pathname.startsWith('/signup');
+  const isAuthPage = request.nextUrl.pathname.startsWith('/get-started');
 
   if ((request.nextUrl.pathname.startsWith('/profile') || request.nextUrl.pathname.startsWith('/test')) && !authed) {
-    return NextResponse.redirect(new URL('/signin', request.url));
+    return NextResponse.redirect(new URL('/get-started', request.url));
   }
 
   if (isAuthPage && authed) {
@@ -18,5 +18,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/profile/:path*', '/signin', '/signup', '/test'],
+  matcher: ['/profile/:path*', '/get-started', '/test'],
 }

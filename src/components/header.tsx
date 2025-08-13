@@ -41,12 +41,9 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Button onClick={() => router.push('/signin')}>
+              <Button onClick={() => router.push('/get-started')}>
                 <LogIn className="mr-2 h-4 w-4" />
-                Sign In
-              </Button>
-              <Button variant="outline" onClick={() => router.push('/signup')}>
-                Sign Up
+                Get Started
               </Button>
             </>
           )}
