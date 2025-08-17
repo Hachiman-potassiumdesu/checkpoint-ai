@@ -39,7 +39,7 @@ export default function ChatSidebar({ chats, activeChatId, onNewChat, onSelectCh
             New Chat
           </Button>
         </div>
-        <ScrollArea className="flex-1">
+        <ScrollArea className="h-full">
           <SidebarMenu>
             {chats.length > 0 && <div className="px-4 pt-2 text-xs font-medium text-muted-foreground">Previous Chats</div>}
             {chats.map(chat => (
