@@ -43,7 +43,7 @@ export default function Home() {
         />
       </Sidebar>
       <SidebarInset>
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-svh">
           {!activeChatId && !isNewChat ? (
             <WelcomeScreen onNewChat={handleNewChat} />
           ) : (
