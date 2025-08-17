@@ -10,7 +10,7 @@ interface WelcomeScreenProps {
 
 export default function WelcomeScreen({ onNewChat }: WelcomeScreenProps) {
   return (
-    <div className="flex flex-col items-center justify-center h-full p-8 bg-background">
+    <div className="flex flex-col items-center justify-center flex-grow p-8 bg-background">
       <Card className="w-full max-w-2xl shadow-lg">
         <CardHeader className="text-center">
           <div className="mx-auto bg-primary text-primary-foreground rounded-full p-3 w-fit mb-4">
