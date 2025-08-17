@@ -32,14 +32,14 @@ export default function ChatSidebar({ chats, activeChatId, onNewChat, onSelectCh
           <h1 className="text-xl font-semibold font-headline">ChattyPDF</h1>
         </div>
       </SidebarHeader>
-      <SidebarContent className="p-0">
+      <SidebarContent className="flex-grow p-0">
         <div className="p-2">
          <Button onClick={onNewChat} className="w-full justify-start">
             <Plus className="mr-2 h-4 w-4" />
             New Chat
           </Button>
         </div>
-        <ScrollArea className="h-[calc(100%-4rem)]">
+        <ScrollArea className="flex-1">
           <SidebarMenu>
             {chats.length > 0 && <div className="px-4 pt-2 text-xs font-medium text-muted-foreground">Previous Chats</div>}
             {chats.map(chat => (
