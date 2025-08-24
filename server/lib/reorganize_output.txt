@@ -1,0 +1,14 @@
+You are responsible for reorganizing writing.
+Given the claims and their respective evaluations, reorganize the output into the following format:
+[{
+    {'claim': claim 1, 'explanation': explanation 1,'score': score 1},
+    {'claim': claim 2, 'explanation': explanation 2, 'score': score 2},
+    ...
+    {'claim': claim n, 'explanation': explanation n, 'score': score n}
+}]
+where score=-1 represents false, score=0 represents unknown, and score=1 represents true
+and explanations explain the evaluated scores
+
+Only return the {...}, no other text.
+
+The following is the text:
