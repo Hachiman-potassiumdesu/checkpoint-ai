@@ -6,13 +6,13 @@ load_dotenv()
 client = genai.Client()
 MODEL_ID = 'gemini-2.5-flash'
 
-with open('lib/extract_and_check.txt', 'r') as f:
+with open('../prompts/extract_and_check.txt', 'r') as f:
     EXTRACT_CHECK_PROMPT = f.read()
 
-with open('lib/reorganize_output.txt', 'r') as f:
+with open('../prompts/reorganize_output.txt', 'r') as f:
     REORGANIZE_OUTPUT_PROMPT = f.read()
 
-with open('lib/generate_context.txt', 'r') as f:
+with open('../prompts/generate_context.txt', 'r') as f:
     GENERATE_CONTEXT_PROMPT = f.read()
 
 def extract_and_evaluate(text):

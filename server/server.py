@@ -6,8 +6,8 @@ import uvicorn
 import fitz
 import ast
 
-from utils import *
-from ai import extract_and_evaluate, reorganize_output, answer_question, generate_context
+from lib.utils import *
+from lib.ai import extract_and_evaluate, reorganize_output, answer_question, generate_context
 
 logging.basicConfig(filename='app.log', level=logging.INFO)
 logger = logging.getLogger(__name__)
