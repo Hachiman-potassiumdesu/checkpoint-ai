@@ -16,12 +16,15 @@ Checkpoint AI allows users to upload documents (such as research papers or repor
 ## UI Screenshots
 
 ### Dashboard
+
 ![Dashboard](./sample_images/Dashboard.png)
 
 ### New Chat Interface
+
 ![New Chat](./sample_images/New%20Chat.png)
 
 ### AI Fact Checking
+
 ![AI Fact Check](./sample_images/AI%20fact%20check.png)
 
 ## Project Structure
@@ -47,7 +50,15 @@ checkpoint-ai/
 
 ## Getting Started
 
-To run the full application, you will need to set up and run both the frontend and backend services.
+### Cloning the Repository
+
+To get a local copy up and running, follow these simple steps.
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Hachiman-potassiumdesu/checkpoint-ai.git
+   cd checkpoint-ai
+   ```
 
 ### Prerequisites
 
@@ -61,6 +72,7 @@ To run the full application, you will need to set up and run both the frontend a
 Before running the application, you need to set up the environment variables.
 
 #### Backend Configuration
+
 1. Create a `.env` file in the `server/` directory.
 2. Add your Google Gemini API key:
    ```env
@@ -68,6 +80,7 @@ Before running the application, you need to set up the environment variables.
    ```
 
 #### Frontend Configuration
+
 1. Create a `.env.local` file in the `frontend/` directory.
 2. Add your Firebase configuration keys:
    ```env
@@ -91,6 +104,7 @@ Before running the application, you need to set up the environment variables.
 It is recommended to use a virtual environment or Conda environment to manage dependencies.
 
 **Option A: Using venv (Standard Library)**
+
 ```bash
 cd server
 python -m venv venv
@@ -100,6 +114,7 @@ python server.py
 ```
 
 **Option B: Using Conda**
+
 ```bash
 cd server
 conda create --name checkpoint-ai python=3.11
@@ -107,6 +122,7 @@ conda activate checkpoint-ai
 pip install -r requirements.txt
 python server.py
 ```
+
 The server runs on `http://0.0.0.0:8000`.
 
 #### Frontend (Next.js)
@@ -116,6 +132,7 @@ cd frontend
 npm install
 npm run dev
 ```
+
 The frontend runs on `http://localhost:3000`.
 
 For detailed instructions, refer to the `README.md` files in the respective `frontend/` and `server/` directories.
