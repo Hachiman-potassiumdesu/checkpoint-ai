@@ -50,89 +50,102 @@ checkpoint-ai/
 
 ## Getting Started
 
-### Cloning the Repository
-
-To get a local copy up and running, follow these simple steps.
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Hachiman-potassiumdesu/checkpoint-ai.git
-   cd checkpoint-ai
-   ```
+Follow these steps to set up and run the project locally.
 
 ### Prerequisites
 
-- Node.js (v18+ recommended)
-- Python (v3.10+ recommended)
-- A Google Cloud Project with Gemini API access
-- A Firebase project for authentication
+- **Node.js** (v18+)
+- **Python** (v3.10+)
+- **Google Gemini API Key**
+- **Firebase Project** (for authentication)
 
-### Configuration
+### Installation
 
-Before running the application, you need to set up the environment variables.
+You can set up the project using pip.
 
-#### Backend Configuration
+#### Using pip
 
-1. Create a `.env` file in the `server/` directory.
-2. Add your Google Gemini API key:
-   ```env
-   GOOGLE_API_KEY=your_google_api_key_here
-   ```
+1.  **Clone the repository:**
 
-#### Frontend Configuration
+    ```bash
+    git clone https://github.com/Hachiman-potassiumdesu/checkpoint-ai.git
+    cd checkpoint-ai
+    ```
 
-1. Create a `.env.local` file in the `frontend/` directory.
-2. Add your Firebase configuration keys:
-   ```env
-   NEXT_PUBLIC_API_KEY=your_firebase_api_key
-   NEXT_PUBLIC_AUTH_DOMAIN=your_project_id.firebaseapp.com
-   NEXT_PUBLIC_PROJECT_ID=your_project_id
-   NEXT_PUBLIC_STORAGE_BUCKET=your_project_id.firebasestorage.app
-   NEXT_PUBLIC_MESSAGING_SENDER_ID=your_messaging_sender_id
-   NEXT_PUBLIC_APP_ID=your_app_id
-   NEXT_PUBLIC_MEASUREMENT_ID=your_measurement_id
-   ```
-3. Add the URL to your backend server:
-   ```env
-   NEXT_PUBLIC_API_URL=your-backend-url
-   ```
+2.  **Create and activate a virtual environment:**
 
-### Installation & Execution
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    ```
 
-#### Backend (Python)
+3.  **Install dependencies from `requirements_pip.txt`:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-It is recommended to use a virtual environment or Conda environment to manage dependencies.
+### 1. Backend Setup (Server)
 
-**Option A: Using venv (Standard Library)**
+Navigate to the `server/` directory to set up the Python environment.
 
 ```bash
 cd server
+
+# Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
-python server.py
 ```
 
-**Option B: Using Conda**
+**Configuration:**
+
+Create a `.env` file in the `server/` directory with your Google API key:
+
+```env
+GOOGLE_API_KEY=your_google_api_key_here
+```
+
+**Run Server:**
 
 ```bash
-cd server
-conda create --name checkpoint-ai python=3.11
-conda activate checkpoint-ai
-pip install -r requirements.txt
 python server.py
 ```
 
-The server runs on `http://0.0.0.0:8000`.
+The backend will start at `http://0.0.0.0:8000`.
 
-#### Frontend (Next.js)
+### 2. Frontend Setup (Client)
+
+Open a new terminal, navigate to the `frontend/` directory, and install dependencies.
 
 ```bash
 cd frontend
 npm install
+```
+
+**Configuration:**
+
+Create a `.env.local` file in the `frontend/` directory with your Firebase and API details:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_AUTH_DOMAIN=your_project_id.firebaseapp.com
+NEXT_PUBLIC_PROJECT_ID=your_project_id
+NEXT_PUBLIC_STORAGE_BUCKET=your_project_id.firebasestorage.app
+NEXT_PUBLIC_MESSAGING_SENDER_ID=your_messaging_sender_id
+NEXT_PUBLIC_APP_ID=your_app_id
+```
+
+**Run Client:**
+
+```bash
 npm run dev
 ```
 
-The frontend runs on `http://localhost:3000`.
+The application will be available at `http://localhost:3000`.
+
+---
 
 For detailed instructions, refer to the `README.md` files in the respective `frontend/` and `server/` directories.
