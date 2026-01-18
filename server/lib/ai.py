@@ -1,19 +1,26 @@
-from google import genai
+import os
+from pathlib import Path
+
 from dotenv import load_dotenv
+from google import genai
 
 load_dotenv()
 
-client = genai.Client()
-MODEL_ID = 'gemini-2.5-flash'
+parent_dir = Path(__file__).resolve().parent.parent
+print(parent_dir)
 
-with open('../prompts/extract_and_check.txt', 'r') as f:
+client = genai.Client()
+MODEL_ID = "gemini-2.5-flash"
+
+with open(os.path.join(parent_dir, "prompts/extract_and_check.txt"), "r") as f:
     EXTRACT_CHECK_PROMPT = f.read()
 
-with open('../prompts/reorganize_output.txt', 'r') as f:
+with open(os.path.join(parent_dir, "prompts/reorganize_output.txt"), "r") as f:
     REORGANIZE_OUTPUT_PROMPT = f.read()
 
-with open('../prompts/generate_context.txt', 'r') as f:
+with open(os.path.join(parent_dir, "prompts/generate_context.txt"), "r") as f:
     GENERATE_CONTEXT_PROMPT = f.read()
+
 
 def extract_and_evaluate(text):
     prompt = f"""
@@ -26,10 +33,11 @@ def extract_and_evaluate(text):
         contents=prompt,
         config={
             "tools": [{"google_search": {}}],
-        }
+        },
     )
 
     return response
+
 
 def reorganize_output(text):
     prompt = f"""
@@ -37,12 +45,10 @@ def reorganize_output(text):
     {text}
     """
 
-    response = client.models.generate_content(
-        model=MODEL_ID,
-        contents=prompt
-    )
+    response = client.models.generate_content(model=MODEL_ID, contents=prompt)
 
     return response
+
 
 def answer_question(context, question):
     prompt = f"""
@@ -59,10 +65,11 @@ def answer_question(context, question):
         contents=prompt,
         config={
             "tools": [{"google_search": {}}],
-        }
+        },
     )
 
     return response
+
 
 def generate_context(prev_context, text):
     prompt = f"""
@@ -75,22 +82,20 @@ def generate_context(prev_context, text):
     {text}
     """
 
-    response = client.models.generate_content(
-        model=MODEL_ID,
-        contents=prompt
-    )
+    response = client.models.generate_content(model=MODEL_ID, contents=prompt)
 
     return response
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     prompt = 'The Pythagorean Theorem is x^2+y^2=z^3. This can be proved using geometry or dot products. Pythagorean only believed in "beautiful numbers," so he executed a follower that proposed the 1-1-root(2) triangle'
 
     response = extract_and_evaluate(prompt)
 
-    response2 = reorganize_output(response.candidates[0].content.parts[0].text)
+    response2 = reorganize_output(response.candidates[0].content.parts[0].text)  # type: ignore
 
-    print(response2.candidates[0].content.parts[0].text)
-    print(', '.join([site.web.uri for site in response.candidates[0].grounding_metadata.grounding_chunks]))
-    print(', '.join([site.web.title for site in response.candidates[0].grounding_metadata.grounding_chunks]))
+    print(response2.candidates[0].content.parts[0].text)  # type: ignore
+    print(", ".join([site.web.uri for site in response.candidates[0].grounding_metadata.grounding_chunks]))  # type: ignore
+    print(", ".join([site.web.title for site in response.candidates[0].grounding_metadata.grounding_chunks]))  # type: ignore
 
 # display(HTML(response.candidates[0].grounding_metadata.search_entry_point.rendered_content))

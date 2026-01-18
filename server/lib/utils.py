@@ -1,12 +1,14 @@
-import fitz
 import io
+
+import fitz
+
 
 def read_pdf_content(contents):
     contents = io.BytesIO(contents)
-    pdf = fitz.open(stream=contents, filetype='pdf')
+    pdf = fitz.open(stream=contents, filetype="pdf")
 
-    text = ''
+    text = ""
     for page in pdf:
-        text += page.get_text()
-    
+        text += page.get_text()  # type: ignore
+
     return text
