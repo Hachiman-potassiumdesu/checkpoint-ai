@@ -61,27 +61,11 @@ Follow these steps to set up and run the project locally.
 
 ### Installation
 
-You can set up the project using pip.
-
-#### Using pip
-
-1.  **Clone the repository:**
+**Clone the repository:**
 
     ```bash
     git clone https://github.com/Hachiman-potassiumdesu/checkpoint-ai.git
     cd checkpoint-ai
-    ```
-
-2.  **Create and activate a virtual environment:**
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate
-    ```
-
-3.  **Install dependencies from `requirements_pip.txt`:**
-    ```bash
-    pip install -r requirements.txt
     ```
 
 ### 1. Backend Setup (Server)
