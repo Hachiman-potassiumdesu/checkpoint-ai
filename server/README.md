@@ -27,25 +27,38 @@ The server runs on port `8000` by default and accepts CORS requests from the fro
 
 ### Prerequisites
 - Python 3.10 or higher.
-- API Key for Google Gemini (configured in environment variables).
+- A Google Cloud Project with Gemini API access.
 
-### Installation
+### Configuration
 
-1.  Navigate to the server directory:
-    ```bash
-    cd server
-    ```
+Create a `.env` file in the `server/` directory with your Google Gemini API key:
 
-2.  Install the required Python packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
+```env
+GOOGLE_API_KEY=your_google_api_key_here
+```
 
-3.  Start the server:
-    ```bash
-    python server.py
-    ```
-    The API will be available at `http://0.0.0.0:8000`.
+### Installation & Execution
+
+It is recommended to use a virtual environment or Conda environment to manage dependencies.
+
+**Option A: Using venv (Standard Library)**
+```bash
+cd server
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+pip install -r requirements.txt
+python server.py
+```
+
+**Option B: Using Conda**
+```bash
+cd server
+conda create --name checkpoint-ai python=3.11
+conda activate checkpoint-ai
+pip install -r requirements.txt
+python server.py
+```
+The API will be available at `http://0.0.0.0:8000`.
 
 ## Project Files
 
