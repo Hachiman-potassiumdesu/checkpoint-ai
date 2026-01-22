@@ -64,7 +64,7 @@ Follow these steps to set up and run the project locally.
 **Clone the repository:**
 
 ```bash
-git clone https://github.com/Hachiman-potassiumdesu/checkpoint-ai.git
+git clone https://github.com/kaitosuzuki-CS/checkpoint-ai.git
 cd checkpoint-ai
 ```
 
